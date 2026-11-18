@@ -8,7 +8,7 @@ instead of reacting after congestion has already formed.
 
 ## Overview
 
-Existing navigation apps (T-map, Kakao Navi) and public ITS detect congestion after it has already
+Existing navigation apps and public ITS detect congestion after it has already
 happened and route individual drivers around it. When many drivers are sent to the same detour, that
 detour becomes the next bottleneck — the congestion is relocated, not resolved.
 
@@ -139,23 +139,6 @@ target, so a nonlinear second stage mostly overfits.
   bottleneck.
 - The report presents this on the 9-node Gangbuk-side test network. It was not run on the full 8-highway
   Seoul network.
-
-## Known rough edges
-
-Left as-is rather than silently fixed:
-- All five notebooks contain hardcoded Windows paths (`D:\...`) and most depend on a CUDA GPU
-  (`device='cuda'`, `torch.cuda.amp.autocast`). They will need path and device edits to run elsewhere.
-- `04_ensemble_comparison.ipynb` has one duplicated cell near the end (saving the BO weights and the
-  Ridge model is done twice, in cells under "11. 최종 결과 저장" and again under "시간 아끼려고 임시로
-  코드 작성").
-- `05_routing_and_gui.ipynb`'s holiday table is hardcoded for 2026 and will need updating for other years.
-- `archive/` holds the pre-fix versions of the LSTM and Transformer training notebooks, kept for
-  reference rather than deleted. The fixed versions in `notebooks/` add a linear-warmup-plus-cosine
-  learning-rate schedule, a `clip_norm` drawn from the Bayesian search space, and a scheduler-step bug
-  fix (`SequentialLR.step()` was being called in the wrong place).
-- None of the notebooks were re-executed for this writeup; they require the private dataset and a GPU
-  that were not part of the handoff, so the numbers in this README are taken from the project's own
-  report rather than reproduced here.
 
 ## Project information
 
