@@ -1,0 +1,12 @@
+torch>=2.0
+numpy
+pandas
+scikit-learn
+xgboost
+optuna
+matplotlib
+seaborn
+PyQt5
+requests
+beautifulsoup4
+tqdm
